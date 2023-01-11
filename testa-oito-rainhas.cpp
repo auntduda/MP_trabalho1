@@ -41,8 +41,8 @@ vector<pair<int,int>> posRainha;
     
 // }
 
-
-bool testaTabuleiro(string str){
+// funcao que testa se o tabuleiro de entrada eh valido ou nao
+bool entradaEhValida(string str){
     
     // se a entrada nao conter 8 rainhas, a entrada eh invalida
     if(posRainha.size()!=8) return true;
@@ -93,7 +93,7 @@ int main()
         }
     }
 
-    if(testaTabuleiro(s))
+    if(entradaEhValida(s))
     {
         cout << "O tabuleiro nao esta no formato correto.\n";
     }else{
