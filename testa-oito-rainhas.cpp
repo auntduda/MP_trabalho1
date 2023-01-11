@@ -3,7 +3,9 @@
 // Campus: Darcy Ribeiro, UnB
 // Semestre: 2022.2
 
-// Problema: 
+// Problema: O objetivo deste trabalho é utilizar o desenvolvimento orientado a testes (TDD) para verificar se um tabuleiro
+// contém a solução para o problema das 8 rainhas. Não é necessário encontrar uma solução. O objetivo é apenas verificar se a
+// entrada é uma solução. Neste problema se verifica nenhuma das rainhas ataca as outras
 
 #include<bits/stdc++.h>
 
@@ -41,16 +43,20 @@ vector<pair<int,int>> posRainha;
 
 
 bool testaTabuleiro(string str){
+    
+    // se a entrada nao conter 8 rainhas, a entrada eh invalida
     if(posRainha.size()!=8) return true;
-
+   
     for(int i=0; i<8; i++)
     {
         for(int j=0; j<8; j++)
         {
-            if(mat[i][j]!=1 || mat[i][j]!=0) return true;
+            // se algum caractere da matriz for diferente de 0 ou 1, a entrada eh invalida
+            if(mat[i][j]!=1 && mat[i][j]!=0) return true;
         }
     }
 
+    // nao encontrou nenhum problema ao longo do tabuleiro
     return false;
 }
 
@@ -60,10 +66,11 @@ int main()
     int row=0, column=0;
     string s;
 
-    while(cin >> s)
+    while(cin >> s)                                                 // fazendo leitura de arquivo
     {
         for(int i=0; i<s.size(); i++)
         {
+            // tranformando a entrada em numeros inteiros
             mat[row][column] = abs('9' - s[i] - 9);
             column++;
             
@@ -72,6 +79,7 @@ int main()
                 row++; column=0;
             }
         }        
+
     }
 
     for(int i=0; i<8; i++)
@@ -80,7 +88,7 @@ int main()
         {
             if(mat[i][j]==1)
             {
-                posRainha.push_back(make_pair(i,j));
+                posRainha.push_back(make_pair(i,j));                // fazendo a contagem de rainhas do tabuleiro, junto de suas respectivas posicoes
             }
         }
     }
@@ -89,7 +97,7 @@ int main()
     {
         cout << "O tabuleiro nao esta no formato correto.\n";
     }else{
-        cout << "deu ruim a testaTabuleiro\n";
+        cout << "Entrada valida\n";
     }
     
     return 0;
