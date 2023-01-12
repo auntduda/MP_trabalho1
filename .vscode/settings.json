@@ -20,5 +20,6 @@
         "**/*_adt.pvs": false,
         "**/*.log": true,
         "**/.vscode": true
-    }
+    },
+    "cmake.sourceDirectory": "${workspaceFolder}/googletest-main"
 }
