@@ -36,10 +36,27 @@ vector<pair<int,int>> posRainha;
 
 // }
 
-// bool testaLinha()
-// {
-    
-// }
+// funcao que testa se existe um ataque entre rainhas em linhas do tabuleiro
+int ataquePorLinha()
+{
+    for(int i=0; i<posRainha.size(); i++)                                   // analisando cada rainha individualmente,
+    {
+        int linhaRainhaAnalisada = posRainha[i].first;                      // vejo em qual linha se encontra,
+
+        for(int j=0; j<posRainha.size(); j++)                               // e comparando com cada outra rainha
+        {
+            if(i!=j)                                                        // que nao seja ela mesma,
+            {
+                int linhaRainha = posRainha[j].first;
+
+                if(linhaRainhaAnalisada == linhaRainha) return linhaRainha; // verifico se as linhas coincidem; se sim,
+                                                                            // retorno a linha onde encontrei o primeiro ataque
+            }
+        }
+    }
+
+    return -1;                                                              // se as linhas nao coinciderem em nenhum momento, nao existe ataque em horizontal
+}
 
 // funcao que testa se o tabuleiro de entrada eh valido ou nao
 bool entradaEhValida(string str){
@@ -98,6 +115,16 @@ int main()
         cout << "O tabuleiro nao esta no formato correto.\n";
     }else{
         cout << "Entrada valida\n";
+    }
+
+    int isAtaqueNaLinha = ataquePorLinha();
+
+    if(isAtaqueNaLinha != -1)
+    {
+        cout << "Ataque na linha " << isAtaqueNaLinha << endl;
+    }else
+    {
+        cout << "Nao existem ataques por linha\n";
     }
     
     return 0;
