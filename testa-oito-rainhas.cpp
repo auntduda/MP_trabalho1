@@ -34,9 +34,10 @@ bool ataquePorDiagonal()
             {
                 pair<int, int> rainhaAnalisada = posRainha[j];
 
-                int somaDasCoordenadas = rainhaFixada.first + rainhaFixada.second + rainhaAnalisada.first + rainhaAnalisada.second;
+                int diferencaLinhas = abs(rainhaFixada.first - rainhaAnalisada.first);
+                int diferencaColunas = abs(rainhaFixada.second - rainhaAnalisada.second);
                 
-                if(somaDasCoordenadas==14)                                                          // armazena todos os ataques por diagonal
+                if(diferencaLinhas==diferencaColunas)                                                          // armazena o primeiro ataque por diagonal
                 {
                     ataque.push_back(make_pair(rainhaFixada.first, rainhaFixada.second));
                     ataque.push_back(make_pair(rainhaAnalisada.first, rainhaAnalisada.second));
