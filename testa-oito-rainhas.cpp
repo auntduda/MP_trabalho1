@@ -15,26 +15,63 @@
 using namespace std;
 
 //Variaveis Globais -------------------------------------------------------------------------------------------
-int mat[8][8];
-vector<pair<int,int>> posRainha;
+int mat[8][8];                      // tabuleiro com as rainhas
+vector<pair<int,int>> posRainha;    // vector para armazenar as posicoes das rainhas
+vector<pair<int,int>> ataque;       // vector para armazenar os ataques por diagonal
 // ------------------------------------------------------------------------------------------------------------
 
-// bool testaColuna()
-// {
+// funcao que testa se existe um ataque entre rainhas nas diagonais do tabuleiro
+// !!!!!!!!!!!!!!!! consertar !!!!!!!!!!!!!!!
+bool ataquePorDiagonal()
+{
+    for(int i=0; i<posRainha.size(); i++)                                       
+    {
+        pair<int, int> rainhaFixada = posRainha[i];                       
 
-// }
+        for(int j=0; j<posRainha.size(); j++)                                   
+        {
+            if(i!=j)                                                            
+            {
+                pair<int, int> rainhaAnalisada = posRainha[j];
 
-// bool testaDiagonal()
-// {
-    // for(int i=0; i<8; i++)
-    // {
-    //     for(int j=0; j<8; j++)
-    //     {
+                int somaDasCoordenadas = rainhaFixada.first + rainhaFixada.second + rainhaAnalisada.first + rainhaAnalisada.second;
+                
+                if(somaDasCoordenadas==14)                                                          // armazena todos os ataques por diagonal
+                {
+                    ataque.push_back(make_pair(rainhaFixada.first, rainhaFixada.second));
+                    ataque.push_back(make_pair(rainhaAnalisada.first, rainhaAnalisada.second));
 
-    //     }
-    // }
+                    return true;                                                                   // indica que um ataque na diagonal foi encontrado
+                }  
+            }
+        }
+    }
 
-// }
+    return false;
+
+}
+
+// funcao que testa se existe um ataque entre rainhas em colunas do tabuleiro
+int ataquePorColuna()
+{
+    for(int i=0; i<posRainha.size(); i++)                                       // analisando cada rainha individualmente,
+    {
+        int colunaRainhaAnalisada = posRainha[i].second;                        // vejo em qual coluna se encontra,
+
+        for(int j=0; j<posRainha.size(); j++)                                   // e comparando com cada outra rainha
+        {
+            if(i!=j)                                                            // que nao seja ela mesma,
+            {
+                int colunaRainha = posRainha[j].second;
+
+                if(colunaRainhaAnalisada == colunaRainha) return colunaRainha;  // verifico se as colunas coincidem; se sim,
+                                                                                // retorno a coluna onde encontrei o primeiro ataque
+            }
+        }
+    }
+
+    return -1; 
+}
 
 // funcao que testa se existe um ataque entre rainhas em linhas do tabuleiro
 int ataquePorLinha()
@@ -62,19 +99,19 @@ int ataquePorLinha()
 bool entradaEhValida(string str){
     
     // se a entrada nao conter 8 rainhas, a entrada eh invalida
-    if(posRainha.size()!=8) return true;
+    if(posRainha.size()!=8) return false;
    
     for(int i=0; i<8; i++)
     {
         for(int j=0; j<8; j++)
         {
             // se algum caractere da matriz for diferente de 0 ou 1, a entrada eh invalida
-            if(mat[i][j]!=1 && mat[i][j]!=0) return true;
+            if(mat[i][j]!=1 && mat[i][j]!=0) return false;
         }
     }
 
     // nao encontrou nenhum problema ao longo do tabuleiro
-    return false;
+    return true;
 }
 
 int main()
@@ -112,9 +149,9 @@ int main()
 
     if(entradaEhValida(s))
     {
-        cout << "O tabuleiro nao esta no formato correto.\n";
-    }else{
         cout << "Entrada valida\n";
+    }else{
+        cout << "O tabuleiro nao esta no formato correto.\n";
     }
 
     int isAtaqueNaLinha = ataquePorLinha();
@@ -125,6 +162,23 @@ int main()
     }else
     {
         cout << "Nao existem ataques por linha\n";
+    }
+
+    int isAtaqueNaColuna = ataquePorColuna();
+
+    if(isAtaqueNaColuna != -1)
+    {
+        cout << "Ataque na coluna " << isAtaqueNaColuna << endl;
+    }else
+    {
+        cout << "Nao existem ataques por coluna\n";
+    }
+
+    if(ataquePorDiagonal())
+    {
+        cout << "O primeiro ataque diagonal esta entre as posicoes (" << ataque[0].first << "," << ataque[0].second << ") e (" << ataque[1].first << "," << ataque[1].second << ")\n";
+    }else{
+        cout << "Nao existem ataques diaginais\n";
     }
     
     return 0;
