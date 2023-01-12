@@ -21,7 +21,6 @@ vector<pair<int,int>> ataque;       // vector para armazenar os ataques por diag
 // ------------------------------------------------------------------------------------------------------------
 
 // funcao que testa se existe um ataque entre rainhas nas diagonais do tabuleiro
-// !!!!!!!!!!!!!!!! consertar !!!!!!!!!!!!!!!
 bool ataquePorDiagonal()
 {
     for(int i=0; i<posRainha.size(); i++)                                       
@@ -150,37 +149,41 @@ int main()
 
     if(entradaEhValida(s))
     {
-        cout << "Entrada valida\n";
+        int isAtaqueNaLinha = ataquePorLinha(); int isAtaqueNaColuna = ataquePorColuna();
+
+        if(isAtaqueNaLinha!=-1 || isAtaqueNaColuna!=-1 || ataquePorDiagonal())                  // verificando se existem ataques por linha, coluna ou pelas diagonais
+        {
+            cout << "0\n";                                                                      // se sim, apresentar zero como output                        
+        }else
+        {
+            cout << "1\n";                                                                      // se nao, o tabuleiro de entrada eh solucao
+        }
     }else{
-        cout << "O tabuleiro nao esta no formato correto.\n";
+        cout << "-1\n";                                                                         // caso o tabuleiro de entrada nao seja uma entrada valida, apresentar -1 como output
     }
 
-    int isAtaqueNaLinha = ataquePorLinha();
+    // if(isAtaqueNaLinha != -1)
+    // {
+    //     cout << "Ataque na linha " << isAtaqueNaLinha << endl;
+    // }else
+    // {
+    //     cout << "Nao existem ataques por linha\n";
+    // }
 
-    if(isAtaqueNaLinha != -1)
-    {
-        cout << "Ataque na linha " << isAtaqueNaLinha << endl;
-    }else
-    {
-        cout << "Nao existem ataques por linha\n";
-    }
+    // if(isAtaqueNaColuna != -1)
+    // {
+    //     cout << "Ataque na coluna " << isAtaqueNaColuna << endl;
+    // }else
+    // {
+    //     cout << "Nao existem ataques por coluna\n";
+    // }
 
-    int isAtaqueNaColuna = ataquePorColuna();
-
-    if(isAtaqueNaColuna != -1)
-    {
-        cout << "Ataque na coluna " << isAtaqueNaColuna << endl;
-    }else
-    {
-        cout << "Nao existem ataques por coluna\n";
-    }
-
-    if(ataquePorDiagonal())
-    {
-        cout << "O primeiro ataque diagonal esta entre as posicoes (" << ataque[0].first << "," << ataque[0].second << ") e (" << ataque[1].first << "," << ataque[1].second << ")\n";
-    }else{
-        cout << "Nao existem ataques diaginais\n";
-    }
+    // if(ataquePorDiagonal())
+    // {
+    //     cout << "O primeiro ataque diagonal esta entre as posicoes (" << ataque[0].first << "," << ataque[0].second << ") e (" << ataque[1].first << "," << ataque[1].second << ")\n";
+    // }else{
+    //     cout << "Nao existem ataques diaginais\n";
+    // }
     
     return 0;
 }
