@@ -1,4 +1,4 @@
-# MP_trabalho1
+# M
 
 Aqui estão os códigos que permitiram a implementação do problema das oito rainhas, que caracteriza o trabalho 1 da disciplina CIC0234 - Métodos de Programação, do semestre 2022.2 da Universidade de Brasília (UnB)
 
