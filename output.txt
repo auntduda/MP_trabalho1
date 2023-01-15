@@ -1,0 +1,101 @@
+commit a2daa84d914e54a56b11c52badc8b9a81f617d11
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Fri Jan 13 08:33:57 2023 -0300
+
+    create cmake.yml to configure environment
+
+commit 0d59c2175f3806a10fd8cc521ca6aba19a98d416
+Author: auntduda <auntduda@gmail.com>
+Date:   Thu Jan 12 17:12:51 2023 -0300
+
+    removing some files to make clean repo
+
+commit e24498e6fb99edc79eb71933900b8868dec71311
+Author: auntduda <auntduda@gmail.com>
+Date:   Thu Jan 12 17:11:16 2023 -0300
+
+    eu simplesmente nao SEI configurar essa inhaca de cpplint, entao deixei so os arquivo de dependencia e daqui umas hora eu tento de novo - e refactoring code (de costume)
+
+commit 64c66157ac03eb41808db506711c1b0769231db8
+Author: auntduda <auntduda@gmail.com>
+Date:   Thu Jan 12 15:41:50 2023 -0300
+
+    refactoring code to attend assignment specs
+
+commit d2b3d8782a61fcdff06999f7387ca761cdb7d7c7
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Thu Jan 12 09:32:35 2023 -0300
+
+    changing and correcting ataquePorDiagonal function
+
+commit 8303593801e3102392b43583f06165186aa46bb9
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Wed Jan 11 22:58:54 2023 -0300
+
+    something went wrong before. changing README title
+
+commit 55f9539576092a093e3e524e80f03c4897283bfa
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Wed Jan 11 22:58:02 2023 -0300
+
+    changing README title
+
+commit 6c78b742c80387675147c87bbd18fe395cb925cb
+Author: auntduda <auntduda@gmail.com>
+Date:   Wed Jan 11 23:01:43 2023 -0300
+
+    adding the ataquePorDiagonal function as weel as the explanation. the code still doenst work
+
+commit 106b16bfc54a73f567746ef34ef41a9d9dffa1ae
+Author: auntduda <auntduda@gmail.com>
+Date:   Wed Jan 11 22:24:42 2023 -0300
+
+    adding ataquePorLinha function and its explanation. the testing has also been done
+
+commit 59375377a6220b9c87e056564c244b201fd33836
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Wed Jan 11 17:42:28 2023 -0300
+
+    refactoring and changing valid board function name
+
+commit 5b1774ce8e2e770188d9117ef8e32d901e3c5ae1
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Wed Jan 11 16:43:08 2023 -0300
+
+    editing README file
+
+commit 0e183d0e15ff9245b12cf0d726c3e6d26a3124bc
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Wed Jan 11 16:38:10 2023 -0300
+
+    Delete teste
+
+commit 15f85bf8c2a0cf6ef9f661313a272a988c1d618e
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Wed Jan 11 16:38:02 2023 -0300
+
+    Delete gen
+
+commit c8dff8a04cd8337abcefa5f94fc11a55f8cd353e
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Wed Jan 11 16:37:28 2023 -0300
+
+    refactorin n adding the code to verify valid board
+
+commit c8c7c4bd10890064db722f3abf78abe641098a0f
+Author: auntduda <auntduda@gmail.com>
+Date:   Mon Jan 9 23:29:55 2023 -0300
+
+    adding teste cases, implementing testaTabuleiro function and using a vector of pairs to store the queens positions
+
+commit 0c68b5b2e47f5ec1a674a1c113200eff682432e8
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Mon Jan 9 17:31:28 2023 -0300
+
+    adding a README file
+
+commit d698df755e956e3f52153fe47b14e1c0bcbc7d69
+Author: Maria Eduarda Carvalho <57044209+auntduda@users.noreply.github.com>
+Date:   Mon Jan 9 17:30:54 2023 -0300
+
+    uploading the code and test files
